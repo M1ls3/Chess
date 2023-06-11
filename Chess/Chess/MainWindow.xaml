@@ -1,0 +1,532 @@
+﻿<Window x:Class="Chess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chess"
+        mc:Ignorable="d"
+        Title="Chess" Height="800" Width="800">
+    <Window.Resources>
+        <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/ExperimentalStandarChessBoard.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="cell_void_1" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_2" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_3" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_4" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="3">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_5" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="4">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_6" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="5">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_7" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="6">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_8" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="7">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_9" Content="" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_10" Content="" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_11" Content="" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_12" Content="" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="3">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_13" Content="" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="4">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_14" Content="" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="5">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_15" Content="" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="6">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_16" Content="" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="7">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_17" Content="" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_18" Content="" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_19" Content="" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_20" Content="" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="3">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_21" Content="" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="4">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_22" Content="" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="5">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_23" Content="" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="6">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_24" Content="" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="7">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_25" Content="" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_26" Content="" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_27" Content="" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_28" Content="" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="3">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_29" Content="" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="4">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_30" Content="" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="5">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_31" Content="" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="6">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_32" Content="" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="7">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_41" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_42" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_43" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_44" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="3">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_45" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="4">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_46" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="5">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_47" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="6">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_48" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="7">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_33" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_34" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_35" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_36" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="3">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_37" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="4">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_38" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="5">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_39" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="6">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_40" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="7">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_56" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_55" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="1" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_54" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="2" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_53" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="3" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_52" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="4" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_51" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="5" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_50" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="6" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_49" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="7" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_64" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_63" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_62" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_61" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="3">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_60" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="4">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_59" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="5">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_58" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="6">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cell_void_57" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Void_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Column="7">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_white_1" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_white.png" Opacity="1" TileMode="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_white_2" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="1" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_white_3" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="2" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_white_4" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="3" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_white_5" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="4" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_white_6" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="5" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_white_7" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="6" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_white_8" Content="" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="7" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="rook_white_1" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/rook_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="rook_white_2" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="7" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/rook_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="knight_white_1" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Knight_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="1" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/knight_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="knight_white_2" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Knight_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="6" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/knight_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="bishop_white_1" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Bishop_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="2" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/bishop_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="bishop_white_2" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Bishop_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="5" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/bishop_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="queen_white" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Queen_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="3" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/queen_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="king_white" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="King_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="4" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/king_white.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_black_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_black.png" Opacity="1" TileMode="None"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_black_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="1" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_black_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="2" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_black_4" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="3" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_black_5" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="4" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_black_6" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="5" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_black_7" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="6" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="pawn_black_8" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="7" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="rook_black_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/rook_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="rook_black_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="7" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/rook_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="knight_black_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Knight_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="1" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/knight_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="knight_black_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Knight_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="6" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/knight_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="bishop_black_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Bishop_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="2" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/bishop_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="bishop_black_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Bishop_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="5" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/bishop_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="queen_black" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Queen_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="3" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/queen_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="king_black" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="King_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="4" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.Background>
+                <ImageBrush ImageSource="/king_black.png" Opacity="1"/>
+            </Button.Background>
+        </Button>
+        
+    </Grid>
+</Window>
