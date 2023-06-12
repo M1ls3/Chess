@@ -3,6 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Media3D;
 
+// Питання.
+// 1. Фігури мають ходии.
+// 2. Фігури мають перевіряти як саме ходити
+
 namespace Chess
 {
     /// <summary>
@@ -27,25 +31,26 @@ namespace Chess
             InitializeComponent();
         }
 
-        public void Show()
-        {
-            string output = $"[1] {figures[0].ToString()} \n[2] {figures[1].ToString()}";
-            MessageBox.Show($"{output}");
-            figures = new Figure[2];
 
-            //figures[0].PerformMove(figures[1]);
-        }
+        //public void Show()
+        //{
+        //    string output = $"[1] {figures[0].ToString()} \n[2] {figures[1].ToString()}";
+        //    MessageBox.Show($"{output}");
+        //    figures = new Figure[2];
+
+        //    //figures[0].PerformMove(figures[1]);
+        //}
 
         private void Pawn_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            string clickValue = button.Name.ToString();
+            string clickValue = button.Name.ToString(); // pawn_white_1
             string[] nameInfo = clickValue.Trim().Split('_');
             int row = Grid.GetRow(button);
             int column = Grid.GetColumn(button);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
-            Pawn pawn = new Pawn(row, column, color);
+            Pawn pawn = new Pawn(row, column, color, sender);
             if (figures[0] == null)
             {
                 figures[0] = pawn;
@@ -53,7 +58,9 @@ namespace Chess
             else if (figures[1] == null)
             {
                 figures[1] = pawn;
-                Show();
+                figures[0].PerformMove(figures[1]);
+                figures = new Figure[2];
+                //Show();
             }
         }
 
@@ -66,7 +73,7 @@ namespace Chess
             int column = Grid.GetColumn(button);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
-            Rook rook = new Rook(row, column, color);
+            Rook rook = new Rook(row, column, color, sender);
             if (figures[0] == null)
             {
                 figures[0] = rook;
@@ -74,7 +81,9 @@ namespace Chess
             else if (figures[1] == null)
             {
                 figures[1] = rook;
-                Show();
+                figures[0].PerformMove(figures[1]);
+                figures = new Figure[2];
+                //Show();
             }
         }
 
@@ -87,7 +96,7 @@ namespace Chess
             int column = Grid.GetColumn(button);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
-            Knight knight = new Knight(row, column, color);
+            Knight knight = new Knight(row, column, color, sender);
             if (figures[0] == null)
             {
                 figures[0] = knight;
@@ -95,7 +104,9 @@ namespace Chess
             else if (figures[1] == null)
             {
                 figures[1] = knight;
-                Show();
+                figures[0].PerformMove(figures[1]);
+                figures = new Figure[2];
+                //Show();
             }
         }
 
@@ -108,7 +119,7 @@ namespace Chess
             int column = Grid.GetColumn(button);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
-            Bishop bishop = new Bishop(row, column, color);
+            Bishop bishop = new Bishop(row, column, color, sender);
             if (figures[0] == null)
             {
                 figures[0] = bishop;
@@ -116,7 +127,9 @@ namespace Chess
             else if (figures[1] == null)
             {
                 figures[1] = bishop;
-                Show();
+                figures[0].PerformMove(figures[1]);
+                figures = new Figure[2];
+                //Show();
             }
         }
 
@@ -129,7 +142,7 @@ namespace Chess
             int column = Grid.GetColumn(button);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
-            Queen queen = new Queen(row, column, color);
+            Queen queen = new Queen(row, column, color, sender);
             if (figures[0] == null)
             {
                 figures[0] = queen;
@@ -137,7 +150,9 @@ namespace Chess
             else if (figures[1] == null)
             {
                 figures[1] = queen;
-                Show();
+                figures[0].PerformMove(figures[1]);
+                figures = new Figure[2];
+                //Show();
             }
         }
 
@@ -150,7 +165,7 @@ namespace Chess
             int column = Grid.GetColumn(button);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
-            King king = new King(row, column, color);
+            King king = new King(row, column, color, sender);
             if (figures[0] == null)
             {
                 figures[0] = king;
@@ -158,7 +173,9 @@ namespace Chess
             else if (figures[1] == null)
             {
                 figures[1] = king;
-                Show();
+                figures[0].PerformMove(figures[1]);
+                figures = new Figure[2];
+                //Show();
             }
         }
 
@@ -171,7 +188,8 @@ namespace Chess
             int column = Grid.GetColumn(button);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
-            CellVoid cellVoid = new CellVoid(row, column, color);
+            CellVoid cellVoid = new CellVoid(row, column, color, sender);
+
             if (figures[0] == null)
             {
                 figures = new Figure[2];
@@ -179,8 +197,11 @@ namespace Chess
             else if (figures[1] == null)
             {
                 figures[1] = cellVoid;
-                Show();
+                figures[0].PerformMove(figures[1]);
+                figures = new Figure[2];
+                //Show();
             }
         }
     }
 }
+

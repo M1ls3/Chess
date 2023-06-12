@@ -53,12 +53,15 @@ namespace Chess
         protected int X { get; set; }
         protected int Y { get; set; }
         protected Color Color { get; set; }
+        protected object Sender { get; set; }
 
-        public Figure(int x, int y, Color color)
+        public Figure(int x, int y, Color color, object sender)
         {
+            Button button = (Button)sender;
             X = x;
             Y = y;
             Color = color;
+            Sender = sender;
         }
 
         public int GetRow()
@@ -75,10 +78,14 @@ namespace Chess
         {
             return Color;
         }
+
+        public object GetSendler()
+        {
+            return Sender;
+        }
+
         public abstract bool CanMove(int targetX, int targetY, bool capturing);
         public abstract bool CanCapture(int targetX, int targetY);
-        //public abstract bool IsChecking(int targetX, int targetY, Figure[,] board);
-        //public abstract bool IsCheckmate(Figure[,] board);
         public abstract void PerformMove(Figure figure);
     }
 }

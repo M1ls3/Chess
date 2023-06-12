@@ -11,7 +11,7 @@ namespace Chess
     {
         protected bool IsFirstMove { get; set; }
 
-        public Pawn(int x, int y, Color color) : base(x, y, color)
+        public Pawn(int x, int y, Color color, object sendler) : base(x, y, color, sendler)
         {
             IsFirstMove = true;
         }
@@ -41,25 +41,29 @@ namespace Chess
             return deltaY == 1 && Math.Abs(deltaX) == 1;
         }
 
-        //public override bool IsChecking(int targetX, int targetY, Figure[,] board)
-        //{
-        //    int deltaY = Color == Color.White ? targetY - Y : Y - targetY;
-        //    int deltaX = targetX - X;
-
-        //    return deltaY == 1 && Math.Abs(deltaX) == 1;
-        //}
-
-        //public override bool IsCheckmate(Figure[,] board)
-        //{
-        //    // Checkmate logic for Pawn
-        //    // ...
-        //    return false;
-        //}
-
         public override void PerformMove(Figure figure)
         {
-            X = figure.GetRow();
-            Y = figure.GetColumn();
+            Button targetButton = (Button)figure.GetSendler();
+            Button sourceButton = (Button)Sender;
+            Grid grid = (Grid)sourceButton.Parent;
+
+            if (figure.GetColor() == Color.Void)
+            {
+                // Move the pawn to an empty cell
+                grid.Children.Remove(sourceButton);
+                Grid.SetRow(sourceButton, figure.GetRow());
+                Grid.SetColumn(sourceButton, figure.GetColumn());
+                grid.Children.Add(sourceButton);
+            }
+            else if (figure.GetColor() != Color)
+            {
+                // Capture the opponent's piece
+                grid.Children.Remove(targetButton);
+                grid.Children.Remove(sourceButton);
+                Grid.SetRow(sourceButton, figure.GetRow());
+                Grid.SetColumn(sourceButton, figure.GetColumn());
+                grid.Children.Add(sourceButton);
+            }
         }
 
         public override string ToString()

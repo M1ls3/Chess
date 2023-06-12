@@ -447,42 +447,42 @@
                 <ImageBrush ImageSource="/king_white.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="pawn_black_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+        <Button x:Name="pawn_black_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" IsTabStop="False" Cursor="Hand" Focusable="False" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1" TileMode="None"/>
             </Button.Background>
         </Button>
-        <Button x:Name="pawn_black_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="1" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+        <Button x:Name="pawn_black_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="1" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="pawn_black_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="2" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+        <Button x:Name="pawn_black_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="2" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="pawn_black_4" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="3" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+        <Button x:Name="pawn_black_4" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="3" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="pawn_black_5" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="4" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+        <Button x:Name="pawn_black_5" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="4" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="pawn_black_6" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="5" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+        <Button x:Name="pawn_black_6" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="5" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="pawn_black_7" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="6" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+        <Button x:Name="pawn_black_7" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="6" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="pawn_black_8" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="7" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1" Margin="0,2,0,0" Grid.RowSpan="2">
+        <Button x:Name="pawn_black_8" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Focusable="False"  IsTabStop="False" Cursor="Hand" Grid.Column="7" Click="Pawn_Click" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
             </Button.Background>
@@ -527,6 +527,6 @@
                 <ImageBrush ImageSource="/king_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        
+
     </Grid>
 </Window>
