@@ -407,12 +407,12 @@
                 <ImageBrush ImageSource="/pawn_white.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="rook_white_1" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+        <Button x:Name="rook_white_1" Content="N" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/rook_white.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="rook_white_2" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="7" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+        <Button x:Name="rook_white_2" Content="N" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="7" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/rook_white.png" Opacity="1"/>
             </Button.Background>
@@ -442,7 +442,7 @@
                 <ImageBrush ImageSource="/queen_white.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="king_white" Content="" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="King_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="4" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+        <Button x:Name="king_white" Content="N" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Height="98" Width="96" Click="King_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="4" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/king_white.png" Opacity="1"/>
             </Button.Background>
@@ -487,12 +487,12 @@
                 <ImageBrush ImageSource="/pawn_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="rook_black_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+        <Button x:Name="rook_black_1" Content="N" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/rook_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="rook_black_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="7" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+        <Button x:Name="rook_black_2" Content="N" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="Rook_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="7" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/rook_black.png" Opacity="1"/>
             </Button.Background>
@@ -522,7 +522,7 @@
                 <ImageBrush ImageSource="/queen_black.png" Opacity="1"/>
             </Button.Background>
         </Button>
-        <Button x:Name="king_black" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="King_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="4" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}">
+        <Button x:Name="king_black" Content="N" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98" Width="96" Click="King_Click" Focusable="False" IsTabStop="False" Cursor="Hand" Grid.Column="4" IsHitTestVisible="True" Style="{StaticResource NoHoverButtonStyle}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/king_black.png" Opacity="1"/>
             </Button.Background>

@@ -5,18 +5,14 @@ namespace Chess
 {
     public class Rook : Figure
     {
-        //public bool HasMoved { get; set; }
         protected Button sourceButton { get; set; }
-        protected Grid grid { get; set; }
 
         public Rook(int row, int column, Color color, object sender) : base(row, column, color, sender)
         {
-            //HasMoved = false;
             sourceButton = (Button)Sender;
-            grid = (Grid)sourceButton.Parent;
         }
 
-        private bool MovePatern(Figure figure)
+        public bool MovePattern(Figure figure)
         {
             bool flag = false;
             if (Column == figure.GetColumn())
@@ -62,7 +58,7 @@ namespace Chess
             bool flag = false;
             if (figure.GetColor() == Color.Void)
             {
-                if (MovePatern(figure))
+                if (MovePattern(figure))
                 {
                     flag = true;
                 }
@@ -75,7 +71,7 @@ namespace Chess
             bool flag = false;
             if (Color != figure.GetColor() && figure.GetColor() != Color.Void)
             {
-                if (MovePatern(figure))
+                if (MovePattern(figure))
                 {
                     flag = true;
                 }
@@ -84,9 +80,9 @@ namespace Chess
         }
 
 
-        public override void PerformMove(Figure figure)
+        public override bool PerformMove(Figure figure)
         {
-            Button targetButton = (Button)figure.GetSendler();
+            Button targetButton = (Button)figure.GetSender();
 
             if (CanMove(figure))
             {
@@ -95,6 +91,8 @@ namespace Chess
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                sourceButton.Content = null;
+                return true;
             }
             else if (CanCapture(figure))
             {
@@ -104,23 +102,10 @@ namespace Chess
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                sourceButton.Content = null;
+                return true;
             }
-        }
-
-        //Helper method to get a button from the Grid based on its position
-        private Button GetFigureFromGrid(int row, int column)
-        {
-            foreach (UIElement element in grid.Children)
-            {
-                if (element is Button button && Grid.GetRow(button) == row && Grid.GetColumn(button) == column)
-                {
-                    string clickValue = button.Name.ToString(); // pawn_white_1
-                    string[] nameInfo = clickValue.Trim().Split('_');
-                    if (button != sourceButton && EnumHelper.GetTypeFromDescription(nameInfo[1]) != Color.Void)
-                        return button;
-                }
-            }
-            return null; // Button not found
+            return false;
         }
 
         public override string ToString()

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Chess
@@ -10,45 +12,64 @@ namespace Chess
     public class Knight : Figure
     {
         protected Button sourceButton { get; set; }
-        protected Grid grid { get; set; }
 
         public Knight(int x, int y, Color color, object sender) : base(x, y, color, sender)
         {
             sourceButton = (Button)Sender;
-            grid = (Grid)sourceButton.Parent;
+        }
+
+        private bool MovePattern(Figure figure)
+        {
+            bool flag = false;
+            if ((Row == figure.GetRow() + 2 && Column == figure.GetColumn() + 1) || (Row == figure.GetRow() + 2 && Column == figure.GetColumn() - 1) ||
+                (Row == figure.GetRow() - 2 && Column == figure.GetColumn() + 1) || (Row == figure.GetRow() - 2 && Column == figure.GetColumn() - 1) ||
+                (Row == figure.GetRow() + 1 && Column == figure.GetColumn() + 2) || (Row == figure.GetRow() + 1 && Column == figure.GetColumn() - 2) ||
+                (Row == figure.GetRow() - 1 && Column == figure.GetColumn() + 2) || (Row == figure.GetRow() - 1 && Column == figure.GetColumn() - 2))
+                flag = true;
+            return flag;
         }
 
         public override bool CanMove(Figure figure)
         {
-            return true;
-            //int deltaX = Math.Abs(targetX - X);
-            //int deltaY = Math.Abs(targetY - Y);
-
-            //return (deltaX == 1 && deltaY == 2) || (deltaX == 2 && deltaY == 1);
+            bool flag = false;
+            if (figure.GetColor() == Color.Void)
+            {
+                if (MovePattern(figure))
+                {
+                    flag = true;
+                }
+            }
+            return flag;
         }
 
         public override bool CanCapture(Figure figure)
         {
-            return false;
-            //return CanMove(targetX, targetY, true);
+            bool flag = false;
+            if (Color != figure.GetColor() && figure.GetColor() != Color.Void)
+            {
+                if (MovePattern(figure))
+                {
+                    flag = true;
+                }
+            }
+            return flag;
         }
 
 
-        public override void PerformMove(Figure figure)
+        public override bool PerformMove(Figure figure)
         {
-            Button targetButton = (Button)figure.GetSendler();
-            Button sourceButton = (Button)Sender;
-            Grid grid = (Grid)sourceButton.Parent;
+            Button targetButton = (Button)figure.GetSender();
 
-            if (figure.GetColor() == Color.Void)
+            if (CanMove(figure))
             {
                 // Move the pawn to an empty cell
                 grid.Children.Remove(sourceButton);
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                return true;
             }
-            else if (figure.GetColor() != Color)
+            else if (CanCapture(figure))
             {
                 // Capture the opponent's piece
                 grid.Children.Remove(targetButton);
@@ -56,12 +77,14 @@ namespace Chess
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                return true;
             }
+            return false;
         }
 
         public override string ToString()
         {
-            return $"Позиція: ({Row}; {Column}), колір: {Color}";
+            return $"Position: ({Row}; {Column}), Color: {Color}";
         }
     }
 }

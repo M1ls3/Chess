@@ -19,9 +19,19 @@ namespace Chess
     /// </summary>
     public partial class Menu : Window
     {
-        public Menu()
+        public Menu(string winerColor)
         {
             InitializeComponent();
+            string message = $"Congratulations,\n{winerColor} has won";
+            label.Content = message;
+            label2.Content = message;
+            label3.Content = message;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
     }
 }

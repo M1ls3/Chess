@@ -4,48 +4,78 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace Chess
 {
     public class Queen : Figure
     {
         protected Button sourceButton { get; set; }
-        protected Grid grid { get; set; }
 
-        public Queen(int x, int y, Color color, object sender) : base(x, y, color, sender)
+        public Queen(int row, int column, Color color, object sender) : base(row, column, color, sender)
         {
             sourceButton = (Button)Sender;
-            grid = (Grid)sourceButton.Parent;
+        }
+
+        private bool MovePattern(Figure figure)
+        {
+            bool flag = false;
+            string clickValue = sourceButton.Name.ToString();
+            string[] nameInfo = clickValue.Trim().Split('_');
+            int row = Grid.GetRow(sourceButton);
+            int column = Grid.GetColumn(sourceButton);
+            Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
+
+            Bishop bishop = new Bishop(row, column, color, Sender);
+            Rook rook = new Rook(row, column, color, Sender);
+
+            if (bishop.MovePattern(figure) || rook.MovePattern(figure))
+            {
+                flag = true;
+            }
+            return flag;
         }
 
         public override bool CanMove(Figure figure)
         {
-            return true;
-            //int deltaX = Math.Abs(targetX - X);
-            //int deltaY = Math.Abs(targetY - Y);
-
-            //return deltaX == deltaY || targetX == X || targetY == Y;
+            bool flag = false;
+            if (figure.GetColor() == Color.Void)
+            {
+                if (MovePattern(figure))
+                {
+                    flag = true;
+                }
+            }
+            return flag;
         }
 
         public override bool CanCapture(Figure figure)
         {
-            return false;
-            //return CanMove(targetX, targetY, true);
+            bool flag = false;
+            if (Color != figure.GetColor() && figure.GetColor() != Color.Void)
+            {
+                if (MovePattern(figure))
+                {
+                    flag = true;
+                }
+            }
+            return flag;
         }
 
-        public override void PerformMove(Figure figure)
+        public override bool PerformMove(Figure figure)
         {
-            Button targetButton = (Button)figure.GetSendler();
+            Button targetButton = (Button)figure.GetSender();
 
-            if (figure.GetColor() == Color.Void)
+            if (CanMove(figure))
             {
                 // Move the pawn to an empty cell
                 grid.Children.Remove(sourceButton);
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                return true;
             }
-            else if (figure.GetColor() != Color)
+            else if (CanCapture(figure))
             {
                 // Capture the opponent's piece
                 grid.Children.Remove(targetButton);
@@ -53,12 +83,14 @@ namespace Chess
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                return true;
             }
+            return false;
         }
 
         public override string ToString()
         {
-            return $"Позиція: ({Row}; {Column}), колір: {Color}";
+            return $"Position: ({Row}; {Column}), Color: {Color}";
         }
     }
 }

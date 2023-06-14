@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Chess
 {
@@ -50,42 +46,51 @@ namespace Chess
 
     public abstract class Figure
     {
+        protected string Name { get; set; }
         protected int Row { get; set; }
         protected int Column { get; set; }
         protected Color Color { get; set; }
         protected object Sender { get; set; }
+        protected Button button { get; set; }
+        protected Grid grid { get; set; }
 
         public Figure(int row, int column, Color color, object sender)
         {
-            Button button = (Button)sender;
+            button = (Button)sender;
             Row = row;
             Column = column;
             Color = color;
             Sender = sender;
+            grid = (Grid)button.Parent;
+            string[] value = button.Name.Trim().Split('_');
+            Name = value[0];
         }
 
-        public int GetRow()
-        {
-            return Row;
-        }
-
-        public int GetColumn()
-        {
-            return Column;
-        }
-
-        public Color GetColor()
-        {
-            return Color;
-        }
-
-        public object GetSendler()
-        {
-            return Sender;
-        }
+        public string GetName() { return Name; }
+        public int GetRow() { return Row; }
+        public int GetColumn() { return Column; }
+        public Color GetColor() { return Color; }
+        public object GetSender() { return Sender; }
 
         public abstract bool CanMove(Figure figure);
         public abstract bool CanCapture(Figure figure);
-        public abstract void PerformMove(Figure figure);
+        public abstract bool PerformMove(Figure figure);
+
+        //Helper method to get a button from the Grid based on its position
+        public Button GetFigureFromGrid(int row, int column)
+        {
+            foreach (UIElement element in grid.Children)
+            {
+                if (element is Button button && Grid.GetRow(button) == row && Grid.GetColumn(button) == column)
+                {
+                    string clickValue = button.Name.ToString(); // pawn_white_1
+                    string[] nameInfo = clickValue.Trim().Split('_');
+                    if (button != this.button && EnumHelper.GetTypeFromDescription(nameInfo[1]) != Color.Void)
+                        return button;
+                }
+            }
+            return null; // Button not found
+        }
     }
 }
+

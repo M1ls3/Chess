@@ -1,8 +1,8 @@
-﻿using System.Data.Common;
-using System.Net.NetworkInformation;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Media3D;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 // Питання.
 // 1. Фігури мають ходии.
@@ -15,33 +15,65 @@ namespace Chess
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static void Menu()
-        {
-            if (MessageBox.Show("Want to start a game of Chess?", "Menu", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.No)
-            {
-                Application.Current.Shutdown();
-            }
-        }
-
         Figure[] figures = null;
+        bool IsWhiteToMove = true;
 
         public MainWindow()
         {
             figures = new Figure[2];
+            IsWhiteToMove = true;
             InitializeComponent();
         }
 
+        public void FigureHandler(Figure figure)
+        {
+            if (figures[0] == null)
+            {
+                if ((IsWhiteToMove && figure.GetColor() == Color.White) || (!IsWhiteToMove && figure.GetColor() == Color.Black))
+                    figures[0] = figure;
+            }
+            else if (figures[1] == null)
+            {
+                figures[1] = figure;
+                if (figures[0].PerformMove(figures[1]))
+                {
+                    if (figures[0].GetType().ToString() == "Chess.Pawn" && (figures[1].GetRow() < 1 || figures[1].GetRow() > 6))
+                    {
+                        object sender = figures[0].GetSender();
+                        Button button = (Button)sender;
+                        button.Click -= Pawn_Click;
+                        button.Click += Queen_Click;
+                        string imagePath;
+                        if (figures[0].GetColor() == Color.White) 
+                            imagePath = "../queen_white.png";
+                        else 
+                            imagePath = "../queen_black.png";
+                        ImageBrush imageBrush = new ImageBrush();
+                        imageBrush.ImageSource = new BitmapImage(new Uri(imagePath, UriKind.Relative));
+                        button.Background = imageBrush;
+                    }
+                    IsWin();
+                    IsWhiteToMove = !IsWhiteToMove;
+                }
+                figures = new Figure[2];
+            }
+        }
 
-        //public void Show(Figure figure)
-        //{
-        //    string output = $"Pos: [1] {figure.ToString()}\n";
-        //    MessageBox.Show($"{output}");
-        //    figures = new Figure[2];
+        public void IsWin() // Check for winning
+        {
+            if (figures[1].GetName() == "king" && figures[1].GetColor() == Color.White)
+            {
+                Menu menu = new Menu("black");
+                menu.Show();
+            }
+            else if (figures[1].GetName() == "king" && figures[1].GetColor() == Color.Black)
+            {
+                Menu menu = new Menu("white");
+                menu.Show();
+            }
+        }
 
-        //    //figures[0].PerformMove(figures[1]);
-        //}
-
-        private void Pawn_Click(object sender, RoutedEventArgs e)
+        private void Pawn_Click(object sender, RoutedEventArgs e) // Pawn
         {
             Button button = (Button)sender;
             string clickValue = button.Name.ToString(); // pawn_white_1
@@ -51,20 +83,10 @@ namespace Chess
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
             Pawn pawn = new Pawn(row, column, color, sender);
-            if (figures[0] == null)
-            {
-                figures[0] = pawn;
-            }
-            else if (figures[1] == null)
-            {
-                figures[1] = pawn;
-                figures[0].PerformMove(figures[1]);
-                figures = new Figure[2];
-                //Show();
-            }
+            FigureHandler(pawn);
         }
 
-        private void Rook_Click(object sender, RoutedEventArgs e)
+        private void Rook_Click(object sender, RoutedEventArgs e) // Rook
         {
             Button button = (Button)sender;
             string clickValue = button.Name.ToString();
@@ -74,20 +96,10 @@ namespace Chess
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
             Rook rook = new Rook(row, column, color, sender);
-            if (figures[0] == null)
-            {
-                figures[0] = rook;
-            }
-            else if (figures[1] == null)
-            {
-                figures[1] = rook;
-                figures[0].PerformMove(figures[1]);
-                figures = new Figure[2];
-                //Show();
-            }
+            FigureHandler(rook);
         }
 
-        private void Knight_Click(object sender, RoutedEventArgs e)
+        private void Knight_Click(object sender, RoutedEventArgs e) // Knight
         {
             Button button = (Button)sender;
             string clickValue = button.Name.ToString();
@@ -97,20 +109,10 @@ namespace Chess
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
             Knight knight = new Knight(row, column, color, sender);
-            if (figures[0] == null)
-            {
-                figures[0] = knight;
-            }
-            else if (figures[1] == null)
-            {
-                figures[1] = knight;
-                figures[0].PerformMove(figures[1]);
-                figures = new Figure[2];
-                //Show();
-            }
+            FigureHandler(knight);
         }
 
-        private void Bishop_Click(object sender, RoutedEventArgs e)
+        private void Bishop_Click(object sender, RoutedEventArgs e) // Bishop
         {
             Button button = (Button)sender;
             string clickValue = button.Name.ToString();
@@ -120,20 +122,10 @@ namespace Chess
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
             Bishop bishop = new Bishop(row, column, color, sender);
-            if (figures[0] == null)
-            {
-                figures[0] = bishop;
-            }
-            else if (figures[1] == null)
-            {
-                figures[1] = bishop;
-                figures[0].PerformMove(figures[1]);
-                //Show();
-                figures = new Figure[2];
-            }
+            FigureHandler(bishop);
         }
 
-        private void Queen_Click(object sender, RoutedEventArgs e)
+        private void Queen_Click(object sender, RoutedEventArgs e) // Queen
         {
             Button button = (Button)sender;
             string clickValue = button.Name.ToString();
@@ -143,20 +135,10 @@ namespace Chess
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
             Queen queen = new Queen(row, column, color, sender);
-            if (figures[0] == null)
-            {
-                figures[0] = queen;
-            }
-            else if (figures[1] == null)
-            {
-                figures[1] = queen;
-                figures[0].PerformMove(figures[1]);
-                figures = new Figure[2];
-                //Show();
-            }
+            FigureHandler(queen);
         }
 
-        private void King_Click(object sender, RoutedEventArgs e)
+        private void King_Click(object sender, RoutedEventArgs e) // King
         {
             Button button = (Button)sender;
             string clickValue = button.Name.ToString();
@@ -166,21 +148,10 @@ namespace Chess
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
             King king = new King(row, column, color, sender);
-            if (figures[0] == null)
-            {
-
-                figures[0] = king;
-            }
-            else if (figures[1] == null)
-            {
-                figures[1] = king;
-                figures[0].PerformMove(figures[1]);
-                figures = new Figure[2];
-                //Show();
-            }
+            FigureHandler(king);
         }
 
-        private void Void_Click(object sender, RoutedEventArgs e)
+        private void Void_Click(object sender, RoutedEventArgs e) // Void
         {
             Button button = (Button)sender;
             string clickValue = button.Name.ToString();
@@ -190,18 +161,7 @@ namespace Chess
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
             CellVoid cellVoid = new CellVoid(row, column, color, sender);
-
-            if (figures[0] == null)
-            {
-                figures = new Figure[2];
-            }
-            else if (figures[1] == null)
-            {
-                figures[1] = cellVoid;
-                figures[0].PerformMove(figures[1]);
-                figures = new Figure[2];
-                //Show();
-            }
+            FigureHandler(cellVoid);
         }
     }
 }

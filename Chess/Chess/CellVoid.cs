@@ -10,12 +10,10 @@ namespace Chess
     internal class CellVoid : Figure
     {
         protected Button sourceButton { get; set; }
-        protected Grid grid { get; set; }
 
-        public CellVoid(int x, int y, Color color, object sender) : base(x, y, color, sender)
+        public CellVoid(int row, int column, Color color, object sender) : base(row, column, color, sender)
         {
             sourceButton = (Button)Sender;
-            grid = (Grid)sourceButton.Parent;
         }
         public override bool CanCapture(Figure figure)
         {
@@ -26,7 +24,7 @@ namespace Chess
             throw new NotImplementedException();
         }
 
-        public override void PerformMove(Figure figure)
+        public override bool PerformMove(Figure figure)
         {
             if (figure.GetColor() == Color.Void)
             {
@@ -35,12 +33,14 @@ namespace Chess
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
-            }         
+                return true;
+            }      
+            return false;
         }
 
         public override string ToString()
         {
-            return $"Позиція: ({Row}; {Column}), стан: {Color}";
+            return $"Position: ({Row}; {Column}), State: {Color}";
         }
     }
 }

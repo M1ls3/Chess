@@ -1,26 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
+﻿using System.Windows.Controls;
 
 namespace Chess
 {
     public class Pawn : Figure
     {
-        protected bool IsFirstMove { get; set; }
         protected Button sourceButton { get; set; }
-        protected Grid grid { get; set; }
 
         public Pawn(int row, int column, Color color, object sendler) : base(row, column, color, sendler)
         {
-            IsFirstMove = true;
             sourceButton = (Button)Sender;
-            grid = (Grid)sourceButton.Parent;
         }
 
         public override bool CanMove(Figure figure)
@@ -62,9 +50,9 @@ namespace Chess
             return flag;
         }
 
-        public override void PerformMove(Figure figure)
+        public override bool PerformMove(Figure figure)
         {
-            Button targetButton = (Button)figure.GetSendler();
+            Button targetButton = (Button)figure.GetSender();
 
             if (CanMove(figure))
             {
@@ -73,6 +61,7 @@ namespace Chess
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                return true;
             }
             else if (CanCapture(figure))
             {
@@ -82,23 +71,9 @@ namespace Chess
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                return true;
             }
-        }
-
-        //Helper method to get a button from the Grid based on its position
-        private Button GetFigureFromGrid(int row, int column)
-        {
-            foreach (UIElement element in grid.Children)
-            {
-                if (element is Button button && Grid.GetRow(button) == row && Grid.GetColumn(button) == column)
-                {
-                    string clickValue = button.Name.ToString(); // pawn_white_1
-                    string[] nameInfo = clickValue.Trim().Split('_');
-                    if (EnumHelper.GetTypeFromDescription(nameInfo[1]) != Color.Void)
-                        return button;
-                }
-            }
-            return null; // Button not found
+            return false;
         }
 
         public override string ToString()

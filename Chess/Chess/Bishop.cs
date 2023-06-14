@@ -3,49 +3,121 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace Chess
 {
     public class Bishop : Figure
     {
         protected Button sourceButton { get; set; }
-        protected Grid grid { get; set; }
 
-        public Bishop(int x, int y, Color color, object sender) : base(x, y, color, sender)
+        public Bishop(int row, int column, Color color, object sender) : base(row, column, color, sender)
         {
             sourceButton = (Button)Sender;
-            grid = (Grid)sourceButton.Parent;
+        }
+
+        public bool MovePattern(Figure figure)
+        {
+            bool flag = false;
+            int deltaColumn = Math.Abs(Column - figure.GetColumn());
+            int deltaRow = Math.Abs(Row - figure.GetRow());
+
+            // Check if the movement is along a diagonal
+            if (deltaColumn == deltaRow)
+            {
+                if (Row > figure.GetRow())
+                {
+                    if (Column > figure.GetColumn())
+                    {
+                        for (int i = 0; i < deltaColumn; i++)
+                        {
+                            Button button = GetFigureFromGrid(Row - i, Column - i);
+                            if (button == null)
+                                flag = true;
+                            else return false;
+                        }
+                    }
+                    else if (Column < figure.GetColumn())
+                    {
+                        for (int i = 0; i < deltaColumn; i++)
+                        {
+                            Button button = GetFigureFromGrid(Row - i, Column + i);
+                            if (button == null)
+                                flag = true;
+                            else return false;
+                        }
+                    }
+                }
+                else if (Row < figure.GetRow())
+                {
+                    if (Column > figure.GetColumn())
+                    {
+                        for (int i = 0; i < deltaColumn; i++)
+                        {
+                            Button button = GetFigureFromGrid(Row + i, Column - i);
+                            if (button == null)
+                                flag = true;
+                            else return false;
+                        }
+                    }
+                    else if (Column < figure.GetColumn())
+                    {
+                        for (int i = 0; i < deltaColumn; i++)
+                        {
+                            Button button = GetFigureFromGrid(Row + i, Column + i);
+                            if (button == null)
+                                flag = true;
+                            else return false;
+                        }
+                    }
+                }
+            }
+
+            return flag;
         }
 
         public override bool CanMove(Figure figure)
         {
-            return true;
-            //int deltaX = Math.Abs(targetX - X);
-            //int deltaY = Math.Abs(targetY - Y);
-
-            //return deltaX == deltaY;
+            bool flag = false;
+            if (figure.GetColor() == Color.Void)
+            {
+                if (MovePattern(figure))
+                {
+                    flag = true;
+                }
+            }
+            return flag;
         }
 
         public override bool CanCapture(Figure figure)
         {
-            return true; 
-            //return CanMove(targetX, targetY, true);
+            bool flag = false;
+            if (Color != figure.GetColor() && figure.GetColor() != Color.Void)
+            {
+                if (MovePattern(figure))
+                {
+                    flag = true;
+                }
+            }
+            return flag;
         }
 
-        public override void PerformMove(Figure figure)
+        public override bool PerformMove(Figure figure)
         {
-            Button targetButton = (Button)figure.GetSendler();
+            Button targetButton = (Button)figure.GetSender();
             
-            if (figure.GetColor() == Color.Void)
+            if (CanMove(figure))
             {
                 // Move the pawn to an empty cell
                 grid.Children.Remove(sourceButton);
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                return true;
             }
-            else if (figure.GetColor() != Color)
+            else if (CanCapture(figure))
             {
                 // Capture the opponent's piece
                 grid.Children.Remove(targetButton);
@@ -53,12 +125,14 @@ namespace Chess
                 Grid.SetRow(sourceButton, figure.GetRow());
                 Grid.SetColumn(sourceButton, figure.GetColumn());
                 grid.Children.Add(sourceButton);
+                return true;
             }
+            return false;
         }
 
         public override string ToString()
         {
-            return $"Позиція: ({Row}; {Column}), колір: {Color}";
+            return $"Position: ({Row}; {Column}), Color: {Color}";
         }
     }
 }
