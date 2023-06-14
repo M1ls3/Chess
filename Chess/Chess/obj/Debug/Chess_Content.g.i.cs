@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pawn_black.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("button%20backgruond%20orange.jpg")]
 
 

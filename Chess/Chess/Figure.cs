@@ -50,28 +50,28 @@ namespace Chess
 
     public abstract class Figure
     {
-        protected int X { get; set; }
-        protected int Y { get; set; }
+        protected int Row { get; set; }
+        protected int Column { get; set; }
         protected Color Color { get; set; }
         protected object Sender { get; set; }
 
-        public Figure(int x, int y, Color color, object sender)
+        public Figure(int row, int column, Color color, object sender)
         {
             Button button = (Button)sender;
-            X = x;
-            Y = y;
+            Row = row;
+            Column = column;
             Color = color;
             Sender = sender;
         }
 
         public int GetRow()
         {
-            return X;
+            return Row;
         }
 
         public int GetColumn()
         {
-            return Y;
+            return Column;
         }
 
         public Color GetColor()
@@ -84,8 +84,8 @@ namespace Chess
             return Sender;
         }
 
-        public abstract bool CanMove(int targetX, int targetY, bool capturing);
-        public abstract bool CanCapture(int targetX, int targetY);
+        public abstract bool CanMove(Figure figure);
+        public abstract bool CanCapture(Figure figure);
         public abstract void PerformMove(Figure figure);
     }
 }

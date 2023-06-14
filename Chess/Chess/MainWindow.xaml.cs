@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Data.Common;
+using System.Net.NetworkInformation;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Media3D;
@@ -26,15 +27,14 @@ namespace Chess
 
         public MainWindow()
         {
-            //Menu();
             figures = new Figure[2];
             InitializeComponent();
         }
 
 
-        //public void Show()
+        //public void Show(Figure figure)
         //{
-        //    string output = $"[1] {figures[0].ToString()} \n[2] {figures[1].ToString()}";
+        //    string output = $"Pos: [1] {figure.ToString()}\n";
         //    MessageBox.Show($"{output}");
         //    figures = new Figure[2];
 
@@ -128,8 +128,8 @@ namespace Chess
             {
                 figures[1] = bishop;
                 figures[0].PerformMove(figures[1]);
-                figures = new Figure[2];
                 //Show();
+                figures = new Figure[2];
             }
         }
 
@@ -168,6 +168,7 @@ namespace Chess
             King king = new King(row, column, color, sender);
             if (figures[0] == null)
             {
+
                 figures[0] = king;
             }
             else if (figures[1] == null)

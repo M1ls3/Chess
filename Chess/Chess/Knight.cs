@@ -9,21 +9,28 @@ namespace Chess
 {
     public class Knight : Figure
     {
+        protected Button sourceButton { get; set; }
+        protected Grid grid { get; set; }
+
         public Knight(int x, int y, Color color, object sender) : base(x, y, color, sender)
         {
+            sourceButton = (Button)Sender;
+            grid = (Grid)sourceButton.Parent;
         }
 
-        public override bool CanMove(int targetX, int targetY, bool capturing)
+        public override bool CanMove(Figure figure)
         {
-            int deltaX = Math.Abs(targetX - X);
-            int deltaY = Math.Abs(targetY - Y);
+            return true;
+            //int deltaX = Math.Abs(targetX - X);
+            //int deltaY = Math.Abs(targetY - Y);
 
-            return (deltaX == 1 && deltaY == 2) || (deltaX == 2 && deltaY == 1);
+            //return (deltaX == 1 && deltaY == 2) || (deltaX == 2 && deltaY == 1);
         }
 
-        public override bool CanCapture(int targetX, int targetY)
+        public override bool CanCapture(Figure figure)
         {
-            return CanMove(targetX, targetY, true);
+            return false;
+            //return CanMove(targetX, targetY, true);
         }
 
 
@@ -54,7 +61,7 @@ namespace Chess
 
         public override string ToString()
         {
-            return $"Позиція: ({X}; {Y}), колір: {Color}";
+            return $"Позиція: ({Row}; {Column}), колір: {Color}";
         }
     }
 }

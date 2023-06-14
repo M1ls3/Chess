@@ -9,25 +9,25 @@ namespace Chess
 {
     internal class CellVoid : Figure
     {
+        protected Button sourceButton { get; set; }
+        protected Grid grid { get; set; }
+
         public CellVoid(int x, int y, Color color, object sender) : base(x, y, color, sender)
         {
-
+            sourceButton = (Button)Sender;
+            grid = (Grid)sourceButton.Parent;
         }
-        public override bool CanCapture(int targetX, int targetY)
+        public override bool CanCapture(Figure figure)
         {
             throw new NotImplementedException();
         }
-        public override bool CanMove(int targetX, int targetY, bool capturing)
+        public override bool CanMove(Figure figure)
         {
             throw new NotImplementedException();
         }
 
         public override void PerformMove(Figure figure)
         {
-            Button targetButton = (Button)figure.GetSendler();
-            Button sourceButton = (Button)Sender;
-            Grid grid = (Grid)sourceButton.Parent;
-
             if (figure.GetColor() == Color.Void)
             {
                 // Move the pawn to an empty cell
@@ -40,7 +40,7 @@ namespace Chess
 
         public override string ToString()
         {
-            return $"Позиція: ({X}; {Y}), стан: {Color}";
+            return $"Позиція: ({Row}; {Column}), стан: {Color}";
         }
     }
 }

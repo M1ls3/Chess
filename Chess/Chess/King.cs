@@ -10,30 +10,34 @@ namespace Chess
     public class King : Figure
     {
         public bool HasMoved { get; set; }
+        protected Button sourceButton { get; set; }
+        protected Grid grid { get; set; }
 
         public King(int x, int y, Color color, object sender) : base(x, y, color, sender)
         {
             HasMoved = false;
+            sourceButton = (Button)Sender;
+            grid = (Grid)sourceButton.Parent;
         }
 
-        public override bool CanMove(int targetX, int targetY, bool capturing)
+        public override bool CanMove(Figure figure)
         {
-            int deltaX = Math.Abs(targetX - X);
-            int deltaY = Math.Abs(targetY - Y);
+            return true;
+            //int deltaX = Math.Abs(targetX - X);
+            //int deltaY = Math.Abs(targetY - Y);
 
-            return (deltaX == 1 && deltaY <= 1) || (deltaX <= 1 && deltaY == 1);
+            //return (deltaX == 1 && deltaY <= 1) || (deltaX <= 1 && deltaY == 1);
         }
 
-        public override bool CanCapture(int targetX, int targetY)
+        public override bool CanCapture(Figure figure)
         {
-            return CanMove(targetX, targetY, true);
+            return false;
+            //return CanMove(targetX, targetY, true);
         }
 
         public override void PerformMove(Figure figure)
         {
             Button targetButton = (Button)figure.GetSendler();
-            Button sourceButton = (Button)Sender;
-            Grid grid = (Grid)sourceButton.Parent;
 
             if (figure.GetColor() == Color.Void)
             {
@@ -56,7 +60,7 @@ namespace Chess
 
         public override string ToString()
         {
-            return $"Позиція: ({X}; {Y}), колір: {Color}";
+            return $"Позиція: ({Row}; {Column}), колір: {Color}";
         }
     }
 }
