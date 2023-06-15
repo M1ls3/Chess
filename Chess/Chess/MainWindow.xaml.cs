@@ -4,15 +4,8 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-// Питання.
-// 1. Фігури мають ходии.
-// 2. Фігури мають перевіряти як саме ходити
-
 namespace Chess
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Figure[] figures = null;
