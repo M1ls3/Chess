@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess"
         mc:Ignorable="d"
-        Title="Congratulation" Height="413" Width="546">
+        Title="Congratulation" Height="471" Width="625">
     <Window.Background>
         <ImageBrush ImageSource="/Menu background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
@@ -13,14 +13,14 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label x:Name="label2" Content="Label" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="109" Margin="0,44,0,0" VerticalAlignment="Top" Width="334" FontSize="40" FontFamily="Segoe UI Semibold" FontWeight="Bold" Background="{x:Null}" Foreground="#FFFF4242"/>
-        <Label x:Name="label3" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="109" Margin="101,42,0,0" VerticalAlignment="Top" Width="334" FontSize="40" FontFamily="Segoe UI Semibold" FontWeight="Bold" Background="{x:Null}" Foreground="#FF42C2FF"/>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="109" Margin="0,43,0,0" VerticalAlignment="Top" Width="334" FontSize="40" FontFamily="Segoe UI Semibold" FontWeight="Bold" Background="{x:Null}">
+        <Label x:Name="label2" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="109" Margin="24,124,23,0" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe UI Semibold" FontWeight="Bold" Background="{x:Null}" Foreground="#FFFF4242"/>
+        <Label x:Name="label3" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="21,122,26,0" FontSize="40" FontFamily="Segoe UI Semibold" FontWeight="Bold" Background="{x:Null}" Foreground="#FF42C2FF" Height="109" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="23,123,25,0" FontSize="40" FontFamily="Segoe UI Semibold" FontWeight="Bold" Background="{x:Null}" Height="109" VerticalAlignment="Top">
             <Label.Foreground>
                 <ImageBrush ImageSource="/button backgruond green.jpg" TileMode="FlipX"/>
             </Label.Foreground>
         </Label>
-        <Button x:Name="button" Content="Start over" HorizontalAlignment="Center" Margin="0,261,0,0" VerticalAlignment="Top" Height="67" Width="166" FontSize="30" FontFamily="Sitka Heading Semibold" Click="button_Click">
+        <Button x:Name="button" Content="Start over" Margin="215,0,216,59" FontSize="30" FontFamily="Sitka Heading Semibold" Click="button_Click" Height="67" VerticalAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="/button backgruond orange.jpg"/>
             </Button.Background>
