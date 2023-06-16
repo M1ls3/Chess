@@ -32,38 +32,48 @@ namespace Chess
                 {
                     if (figures[0].GetType().ToString() == "Chess.Pawn" && (figures[1].GetRow() < 1 || figures[1].GetRow() > 6))
                     {
-                        object sender = figures[0].GetSender();
-                        Button button = (Button)sender;
-                        button.Click -= Pawn_Click;
-                        button.Click += Queen_Click;
-                        string imagePath;
-                        if (figures[0].GetColor() == Color.White) 
-                            imagePath = "../queen_white.png";
-                        else 
-                            imagePath = "../queen_black.png";
-                        ImageBrush imageBrush = new ImageBrush();
-                        imageBrush.ImageSource = new BitmapImage(new Uri(imagePath, UriKind.Relative));
-                        button.Background = imageBrush;
+                        PromoteToQueen();
                     }
-                    IsWin();
                     IsWhiteToMove = !IsWhiteToMove;
                 }
-                figures = new Figure[2];
+                if (!IsWin())
+                {
+                    figures = new Figure[2];
+                }
             }
         }
 
-        public void IsWin() // Check for winning
+        public void PromoteToQueen()
+        {
+            object sender = figures[0].GetSender();
+            Button button = (Button)sender;
+            button.Click -= Pawn_Click;
+            button.Click += Queen_Click;
+            string imagePath;
+            if (figures[0].GetColor() == Color.White)
+                imagePath = "../queen_white.png";
+            else
+                imagePath = "../queen_black.png";
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri(imagePath, UriKind.Relative));
+            button.Background = imageBrush;
+        }
+
+        public bool IsWin() // Check for winning
         {
             if (figures[1].GetName() == "king" && figures[1].GetColor() == Color.White)
             {
                 Menu menu = new Menu("black");
                 menu.Show();
+                return true;
             }
             else if (figures[1].GetName() == "king" && figures[1].GetColor() == Color.Black)
             {
                 Menu menu = new Menu("white");
                 menu.Show();
+                return true;
             }
+            return false;
         }
 
         private void Pawn_Click(object sender, RoutedEventArgs e) // Pawn
@@ -155,6 +165,11 @@ namespace Chess
 
             CellVoid cellVoid = new CellVoid(row, column, color, sender);
             FigureHandler(cellVoid);
+        }
+
+        private void IsClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

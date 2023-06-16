@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess"
         mc:Ignorable="d"
-        Title="Congratulation" Height="471" Width="625">
+        Title="Congratulation" Height="471" Width="625" Closing="IsClosing">
     <Window.Background>
         <ImageBrush ImageSource="/Menu background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
