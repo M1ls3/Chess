@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Chess.App" Collapsed="true">
-    <Position X="11.5" Y="0.5" Width="1.5" />
+    <Position X="10.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
@@ -50,17 +50,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Chess.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="15" Y="0.5" Width="1.5" />
+    <Position X="14.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACgABBAIAAAAAAQBAAAAAACAAAQAgAAAAAAAAAE=</HashCode>
+      <HashCode>EAAAACgABBAIAAAQAAQBAAAAAACAAAQAgAAAAAAAAAE=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Chess.Menu" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11.5" Y="1.5" Width="1.5" />
+    <Position X="10.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Menu.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -87,13 +87,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Chess.Properties.Resources" Collapsed="true">
-    <Position X="13.25" Y="0.5" Width="1.5" />
+    <Position X="12.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Chess.Properties.Settings" Collapsed="true">
-    <Position X="15" Y="1.5" Width="1.5" />
+    <Position X="14.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>

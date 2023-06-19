@@ -50,6 +50,28 @@ namespace Chess
             return flag;
         }
 
+        public override bool PerformMove(Figure figure)
+        {
+            Button targetButton = (Button)figure.GetSender();
+
+            if (CanMove(figure))
+            {
+                // Move the pawn to an empty cell
+                Replace(figure);
+                sourceButton.Content = " ";
+                return true;
+            }
+            else if (CanCapture(figure))
+            {
+                // Capture the opponent's piece
+                grid.Children.Remove(targetButton);
+                Replace(figure);
+                sourceButton.Content = " ";
+                return true;
+            }
+            else return CanCastling(figure);
+        }
+
         public bool CanCastling(Figure figure)
         {
             bool flag = false;
@@ -73,7 +95,7 @@ namespace Chess
                         Grid.SetRow(rook, figure.GetRow());
                         Grid.SetColumn(rook, figure.GetColumn() - 1);
                         grid.Children.Add(rook);
-                        sourceButton.Content = null;
+                        sourceButton.Content = " ";
                         flag = true;
                     }
                 }
@@ -95,40 +117,12 @@ namespace Chess
                         Grid.SetRow(rook, figure.GetRow());
                         Grid.SetColumn(rook, figure.GetColumn());
                         grid.Children.Add(rook);
-                        sourceButton.Content = null;
+                        sourceButton.Content = " ";
                         flag = true;
                     }
                 }
             }
             return flag;
-        }
-
-        public override bool PerformMove(Figure figure)
-        {
-            Button targetButton = (Button)figure.GetSender();
-
-            if (CanMove(figure))
-            {
-                // Move the pawn to an empty cell
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
-                sourceButton.Content = null;
-                return true;
-            }
-            else if (CanCapture(figure))
-            {
-                // Capture the opponent's piece
-                grid.Children.Remove(targetButton);
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
-                sourceButton.Content = null;
-                return true;
-            }
-            else return CanCastling(figure);
         }
 
         public override string ToString()

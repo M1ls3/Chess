@@ -4,12 +4,7 @@ namespace Chess
 {
     public class Pawn : Figure
     {
-        protected Button sourceButton { get; set; }
-
-        public Pawn(int row, int column, Color color, object sendler) : base(row, column, color, sendler)
-        {
-            sourceButton = (Button)Sender;
-        }
+        public Pawn(int row, int column, Color color, object sendler) : base(row, column, color, sendler) { }
 
         public override bool CanMove(Figure figure)
         {
@@ -57,20 +52,14 @@ namespace Chess
             if (CanMove(figure))
             {
                 // Move the pawn to an empty cell
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
+                Replace(figure);
                 return true;
             }
             else if (CanCapture(figure))
             {
                 // Capture the opponent's piece
                 grid.Children.Remove(targetButton);
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
+                Replace(figure);
                 return true;
             }
             return false;

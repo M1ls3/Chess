@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace Chess
 {
     public class Knight : Figure
     {
-        protected Button sourceButton { get; set; }
-
-        public Knight(int x, int y, Color color, object sender) : base(x, y, color, sender)
-        {
-            sourceButton = (Button)Sender;
-        }
+        public Knight(int x, int y, Color color, object sender) : base(x, y, color, sender) { }
 
         private bool MovePattern(Figure figure)
         {
@@ -55,28 +43,21 @@ namespace Chess
             return flag;
         }
 
-
         public override bool PerformMove(Figure figure)
         {
             Button targetButton = (Button)figure.GetSender();
 
             if (CanMove(figure))
             {
-                // Move the pawn to an empty cell
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
+                // Move to an empty cell
+                Replace(figure);
                 return true;
             }
             else if (CanCapture(figure))
             {
                 // Capture the opponent's piece
                 grid.Children.Remove(targetButton);
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
+                Replace(figure);
                 return true;
             }
             return false;

@@ -76,6 +76,14 @@ namespace Chess
         public abstract bool CanCapture(Figure figure);
         public abstract bool PerformMove(Figure figure);
 
+        public void Replace(Figure figure)
+        {
+            grid.Children.Remove(button);
+            Grid.SetRow(button, figure.GetRow());
+            Grid.SetColumn(button, figure.GetColumn());
+            grid.Children.Add(button);
+        }
+
         //Helper method to get a button from the Grid based on its position
         public Button GetFigureFromGrid(int row, int column)
         {

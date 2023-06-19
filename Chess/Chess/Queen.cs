@@ -68,21 +68,15 @@ namespace Chess
 
             if (CanMove(figure))
             {
-                // Move the pawn to an empty cell
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
+                // Move to an empty cell
+                Replace(figure);
                 return true;
             }
             else if (CanCapture(figure))
             {
                 // Capture the opponent's piece
                 grid.Children.Remove(targetButton);
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
+                Replace(figure);
                 return true;
             }
             return false;

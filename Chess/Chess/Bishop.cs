@@ -11,21 +11,14 @@ namespace Chess
 {
     public class Bishop : Figure
     {
-        protected Button sourceButton { get; set; }
-
-        public Bishop(int row, int column, Color color, object sender) : base(row, column, color, sender)
-        {
-            sourceButton = (Button)Sender;
-        }
+        public Bishop(int row, int column, Color color, object sender) : base(row, column, color, sender) { }
 
         public bool MovePattern(Figure figure)
         {
             bool flag = false;
             int deltaColumn = Math.Abs(Column - figure.GetColumn());
             int deltaRow = Math.Abs(Row - figure.GetRow());
-
-            // Check if the movement is along a diagonal
-            if (deltaColumn == deltaRow)
+            if (deltaColumn == deltaRow) // Check if the movement is along a diagonal
             {
                 if (Row > figure.GetRow())
                 {
@@ -74,7 +67,6 @@ namespace Chess
                     }
                 }
             }
-
             return flag;
         }
 
@@ -110,21 +102,15 @@ namespace Chess
             
             if (CanMove(figure))
             {
-                // Move the pawn to an empty cell
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
+                // Move to an empty cell
+                Replace(figure);
                 return true;
             }
             else if (CanCapture(figure))
             {
                 // Capture the opponent's piece
                 grid.Children.Remove(targetButton);
-                grid.Children.Remove(sourceButton);
-                Grid.SetRow(sourceButton, figure.GetRow());
-                Grid.SetColumn(sourceButton, figure.GetColumn());
-                grid.Children.Add(sourceButton);
+                Replace(figure);
                 return true;
             }
             return false;

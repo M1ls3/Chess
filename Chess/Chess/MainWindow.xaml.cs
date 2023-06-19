@@ -10,6 +10,7 @@ namespace Chess
     {
         Figure[] figures = null;
         bool IsWhiteToMove = true;
+        bool IsWining = false;
 
         public MainWindow()
         {
@@ -28,15 +29,16 @@ namespace Chess
             else if (figures[1] == null)
             {
                 figures[1] = figure;
-                if (figures[0].PerformMove(figures[1]))
+                if (figures[0].PerformMove(figures[1])) // 
                 {
                     if (figures[0].GetType().ToString() == "Chess.Pawn" && (figures[1].GetRow() < 1 || figures[1].GetRow() > 6))
                     {
                         PromoteToQueen();
                     }
+                    IsWining = IsWin();
                     IsWhiteToMove = !IsWhiteToMove;
                 }
-                if (!IsWin())
+                if (!IsWining)
                 {
                     figures = new Figure[2];
                 }
