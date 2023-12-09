@@ -61,7 +61,7 @@ namespace Chess
                 if (MovePattern(figure))
                 {
                     flag = true;
-                }
+                } 
             }
             return flag;
         }

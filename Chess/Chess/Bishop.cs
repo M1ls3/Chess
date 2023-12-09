@@ -64,7 +64,7 @@ namespace Chess
                                 flag = true;
                             else return false;
                         }
-                    }
+                    } 
                 }
             }
             return flag;

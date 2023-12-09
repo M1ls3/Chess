@@ -53,7 +53,7 @@ namespace Chess
         protected object Sender { get; set; }
         protected Button button { get; set; }
         protected Grid grid { get; set; }
-
+         
         public Figure(int row, int column, Color color, object sender)
         {
             button = (Button)sender;

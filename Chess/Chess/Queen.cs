@@ -21,7 +21,7 @@ namespace Chess
         {
             bool flag = false;
             string clickValue = sourceButton.Name.ToString();
-            string[] nameInfo = clickValue.Trim().Split('_');
+            string[] nameInfo = clickValue.Trim().Split('_'); 
             int row = Grid.GetRow(sourceButton);
             int column = Grid.GetColumn(sourceButton);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);

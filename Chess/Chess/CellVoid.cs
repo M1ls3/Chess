@@ -3,7 +3,7 @@
 namespace Chess
 {
     internal class CellVoid : Figure
-    {
+    { 
 
         public CellVoid(int row, int column, Color color, object sender) : base(row, column, color, sender) { }
 

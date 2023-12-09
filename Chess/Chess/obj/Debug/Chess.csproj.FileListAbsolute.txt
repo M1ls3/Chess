@@ -16,3 +16,21 @@ C:\!Dizox\Лаби\ЧНУ\2023 рік 2 семестр 2 курсу\ООП\Ку�
 C:\!Dizox\Лаби\ЧНУ\2023 рік 2 семестр 2 курсу\ООП\Курсова\Chess\Chess\obj\Debug\Chess.pdb
 C:\!Dizox\Лаби\ЧНУ\2023 рік 2 семестр 2 курсу\ООП\Курсова\Chess\Chess\obj\Debug\Menu.g.cs
 C:\!Dizox\Лаби\ЧНУ\2023 рік 2 семестр 2 курсу\ООП\Курсова\Chess\Chess\obj\Debug\Menu.baml
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\bin\Debug\Chess.exe.config
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\bin\Debug\Chess.exe
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\bin\Debug\Chess.pdb
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess.csproj.AssemblyReference.cache
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess.csproj.SuggestedBindingRedirects.cache
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\MainWindow.g.cs
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Menu.g.cs
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\App.g.cs
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess_MarkupCompile.cache
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess_MarkupCompile.lref
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\MainWindow.baml
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Menu.baml
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess.g.resources
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess.Properties.Resources.resources
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess.csproj.GenerateResource.cache
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess.csproj.CoreCompileInputs.cache
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess.exe
+C:\!Dizox\Git\Repositories\Chess\Chess\Chess\obj\Debug\Chess.pdb

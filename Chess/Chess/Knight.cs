@@ -7,7 +7,7 @@ namespace Chess
         public Knight(int x, int y, Color color, object sender) : base(x, y, color, sender) { }
 
         private bool MovePattern(Figure figure)
-        {
+        { 
             bool flag = false;
             if ((Row == figure.GetRow() + 2 && Column == figure.GetColumn() + 1) || (Row == figure.GetRow() + 2 && Column == figure.GetColumn() - 1) ||
                 (Row == figure.GetRow() - 2 && Column == figure.GetColumn() + 1) || (Row == figure.GetRow() - 2 && Column == figure.GetColumn() - 1) ||

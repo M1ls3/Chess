@@ -70,7 +70,7 @@ namespace Chess
                 return true;
             }
             else return CanCastling(figure);
-        }
+        } 
 
         public bool CanCastling(Figure figure)
         {

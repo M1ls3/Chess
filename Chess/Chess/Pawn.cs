@@ -11,7 +11,7 @@ namespace Chess
             bool flag = false;
             if (figure.GetColor() == Color.Void && Column == figure.GetColumn())
             {
-                if (Color == Color.White)
+                if (Color == Color.White) 
                 {
                     if (Row == 6 && figure.GetRow() == 4 && GetFigureFromGrid(5, figure.GetColumn()) == null)
                         flag = true;

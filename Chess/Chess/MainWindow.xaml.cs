@@ -27,7 +27,7 @@ namespace Chess
                     figures[0] = figure;
             }
             else if (figures[1] == null)
-            {
+            { 
                 figures[1] = figure;
                 if (figures[0].PerformMove(figures[1])) // 
                 {
