@@ -161,7 +161,7 @@ namespace Chess
             Button button = (Button)sender;
             string clickValue = button.Name.ToString();
             string[] nameInfo = clickValue.Trim().Split('_');
-            int row = Grid.GetRow(button);
+            int row = Grid.GetRow(button); 
             int column = Grid.GetColumn(button);
             Color color = EnumHelper.GetTypeFromDescription(nameInfo[1]);
 
